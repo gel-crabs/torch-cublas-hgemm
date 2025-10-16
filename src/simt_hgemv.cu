@@ -20,7 +20,7 @@ inline void checkCudaStatus(cudaError_t status)
     }
 }
 
-__device__ __forceinline__ half warpReduceSum(half sum, uint32_t threadNum, uint64_t mask = 0xFFFFFFFF)
+__device__ __forceinline__ half warpReduceSum(half sum, uint32_t threadNum, unsigned long long mask = 0xffffffff)
 {
     if (threadNum >= 32)
         sum += __shfl_down_sync(mask, sum, 16); // 0-16, 1-17, 2-18, etc.
