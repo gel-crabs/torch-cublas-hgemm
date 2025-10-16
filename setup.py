@@ -77,11 +77,10 @@ def build_for_rocm():
             name="cublas_ops_ext",
             sources=["src/cublas_hgemm.hip"] + glob.glob("src/*.hip"),
             extra_compile_args={
-                "cxx": ["-O3", "-std=c++17", "-DNDEBUG"] + generator_flag,
+                "cxx": ["-O3", "-std=c++17"] + generator_flag,
                 "nvcc": [
                     "-O3",
                     "-std=c++17",
-                    "-DNDEBUG",
                     "-U__HIP_NO_HALF_OPERATORS__",
                     "-U__HIP_NO_HALF_CONVERSIONS__",
                     "-U__HIP_NO_HALF2_OPERATORS__",
