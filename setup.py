@@ -86,6 +86,7 @@ def build_for_rocm():
                     "-U__HIP_NO_HALF_CONVERSIONS__",
                     "-U__HIP_NO_HALF2_OPERATORS__",
                     "-U__HIP_NO_BFLOAT16_CONVERSIONS__",
+                    "-DHIPBLAS_USE_HIP_HALF",
                 ]
                 + generator_flag
                 + cc_flag,
